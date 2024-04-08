@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const theme = createTheme({
+    typography: {
+      fontFamily: '"Inter", sans-serif',
+    },
+    palette: {
+      primary: {
+        main: "#0646C6",
+      },
+      secondary: {
+        main: "#f0f5ff",
+      },
+    },
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider theme={theme}>
+      <Paper
+        elevation={12}
+        sx={{
+          margin: 10,
+          padding: 10,
+          color: "secondary.main",
+          bgcolor: "primary.main",
+          width: "fit-content",
+          height: 300,
+        }}
+      >
+        <Typography variant='h1' fontWeight={900}>
+          Hello World
+        </Typography>
+      </Paper>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
