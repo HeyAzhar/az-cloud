@@ -1,9 +1,9 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
+import { red } from "@mui/material/colors";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
+import StateProvider from "./states/StateProvider";
+
 import "./App.css";
 
 function App() {
@@ -18,12 +18,17 @@ function App() {
       secondary: {
         main: "#f0f5ff",
       },
+      danger: {
+        main: red[800],
+      },
     },
   });
 
   return (
     <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
+      <StateProvider>
+        <RouterProvider router={router} />
+      </StateProvider>
     </ThemeProvider>
   );
 }

@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-
 import Typography from "@mui/material/Typography";
+import { useNotification } from "../../states/notifications/store";
+import actions from "../../states/notifications/actions";
 
 const NotificationDrawer = () => {
-  const [open, setOpen] = useState(false);
+  const { notificationState, dispatchNotification } = useNotification();
 
-  const toggleDrawer = () => () => {
-    setOpen(!open);
+  const toggleDrawer = () => {
+    dispatchNotification({
+      type: actions.CLOSE_DRAWER,
+    });
   };
 
   return (
-    <div>
-      <Button onClick={toggleDrawer()}>Open drawer</Button>
-
-      <Drawer anchor='right' open={open} onClose={toggleDrawer()}>
-        <Typography variant='h1'>Hello</Typography>
-      </Drawer>
-    </div>
+    <Drawer
+      anchor='right'
+      open={notificationState.isDrawerOpen}
+      onClose={toggleDrawer}
+    >
+      <Typography variant='h1'>Hello</Typography>
+    </Drawer>
   );
 };
 

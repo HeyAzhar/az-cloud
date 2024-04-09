@@ -6,11 +6,20 @@ import MenuItem from "@mui/material/MenuItem";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import accounts from "../../utils/accounts";
+import { useAccount } from "../../states/accounts/store";
+import actions from "../../states/accounts/actions";
 
 const Accounts = () => {
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
   const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const { accountState, dispatchAccount } = useAccount();
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -20,13 +29,28 @@ const Accounts = () => {
     setAnchorElUser(null);
   };
 
+  const handleAccountChange = (event) => {
+    dispatchAccount({
+      type: actions.CHANGE_ACCOUNT,
+      account: event.target.value,
+    });
+    handleCloseUserMenu();
+  };
+
   return (
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title='Accounts'>
+        <Typography
+          textTransform={"none"}
+          variant='caption'
+          sx={{ color: "secondary.main", mr: 1 }}
+        >
+          {accountState}
+        </Typography>
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar
             sx={{ bgcolor: "primary.main", border: 1, mr: 2 }}
-            alt=''
+            alt={accountState}
             src='/brokenImg.jpg'
           />
         </IconButton>
@@ -47,11 +71,31 @@ const Accounts = () => {
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <Typography textAlign='center'>{setting}</Typography>
-          </MenuItem>
-        ))}
+        <FormControl sx={{ mx: 3 }}>
+          <RadioGroup
+            aria-labelledby='demo-radio-buttons-group-label'
+            value={accountState}
+            name='radio-buttons-group'
+            onChange={handleAccountChange}
+          >
+            {accounts.map((account) => (
+              <FormControlLabel
+                key={account}
+                value={account}
+                control={<Radio />}
+                label={account}
+              />
+            ))}
+          </RadioGroup>
+        </FormControl>
+
+        <Divider />
+
+        <MenuItem sx={{ width: "fitContent" }} onClick={handleCloseUserMenu}>
+          <Typography color='danger.main' textAlign='center'>
+            Logout
+          </Typography>
+        </MenuItem>
       </Menu>
     </Box>
   );

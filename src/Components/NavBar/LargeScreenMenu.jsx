@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
-import NavList from "../../Utils/NavList";
+import NavList from "../../utils/navlist";
 
 const LargeScreenMenu = () => {
   return (
