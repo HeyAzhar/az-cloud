@@ -2,6 +2,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 import "./App.css";
 
 function App() {
@@ -21,21 +23,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper
-        elevation={12}
-        sx={{
-          margin: 10,
-          padding: 10,
-          color: "secondary.main",
-          bgcolor: "primary.main",
-          width: "fit-content",
-          height: 300,
-        }}
-      >
-        <Typography variant='h1' fontWeight={900}>
-          Hello World
-        </Typography>
-      </Paper>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

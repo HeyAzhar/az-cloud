@@ -5,3 +5,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --primary: #0646c6;
+  --secondary: #f0f5ff;
+}
+
+#desktopNavbar .active {
+  background-color: var(--secondary) !important;
+  color: var(--primary);
+}
