@@ -40,20 +40,30 @@ const Accounts = () => {
   return (
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title='Accounts'>
-        <Typography
-          textTransform={"none"}
-          variant='caption'
-          sx={{ color: "secondary.main", mr: 1 }}
-        >
-          {accountState}
-        </Typography>
-        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar
-            sx={{ bgcolor: "primary.main", border: 1, mr: 2 }}
-            alt={accountState}
-            src='/brokenImg.jpg'
-          />
-        </IconButton>
+        <>
+          <Typography
+            variant='subtitle2'
+            sx={{
+              display: { xs: "none", md: "inline" },
+              color: "secondary.main",
+              mr: 1,
+            }}
+          >
+            {accountState}
+          </Typography>
+          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <Avatar
+              sx={{
+                bgcolor: "secondary.main",
+                color: "primary.main",
+                border: 1,
+                mr: 2,
+              }}
+              alt={accountState}
+              src='/brokenImg.jpg'
+            />
+          </IconButton>
+        </>
       </Tooltip>
       <Menu
         sx={{ mt: "45px" }}

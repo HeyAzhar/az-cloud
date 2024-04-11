@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import { useNotification } from "../../states/notifications/store";
 import actions from "../../states/notifications/actions";
 
@@ -20,9 +20,8 @@ const Notifications = () => {
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title='Notifications'>
         <IconButton onClick={openNotificationDrawer} sx={{ p: 0 }}>
-          <NotificationsOutlinedIcon
+          <NotificationsIcon
             sx={{
-              border: 1,
               borderRadius: 50,
               p: 0.5,
               fontSize: 40,

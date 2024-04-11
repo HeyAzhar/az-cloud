@@ -16,7 +16,7 @@ const LargeScreenMenu = () => {
         component={NavLink}
         to='/'
         sx={{
-          mr: 2,
+          mr: 5,
           display: { xs: "none", md: "flex" },
           fontFamily: "monospace",
           fontWeight: 700,
@@ -36,7 +36,7 @@ const LargeScreenMenu = () => {
             component={NavLink}
             to={page === "Home" ? "/" : page.toLowerCase()}
             key={page}
-            sx={{ mx: 1, py: 2, px: 3, color: "inherit", display: "block" }}
+            sx={{ py: 2, px: 3, color: "inherit", display: "block" }}
           >
             {page}
           </Button>

@@ -13,16 +13,7 @@ import Billings from "./routes/Billings/index";
 
 export default createBrowserRouter(
   createRoutesFromElements(
-    <Route
-      path=''
-      element={
-        <>
-          <Layout />
-          <Outlet />
-        </>
-      }
-      errorElement=<ErrorPage />
-    >
+    <Route path='' element={<Layout />} errorElement=<ErrorPage />>
       <Route path='/' element={<Home />} />
       <Route path='resources' element={<Resources />} />
       <Route path='operations' element={<Operations />} />

@@ -1,6 +1,7 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
+import { Outlet } from "react-router-dom";
 import NavBar from "../Components/NavBar";
+import Container from "@mui/material/Container";
 import NotificationDrawer from "../Components/Common/NotificationDrawer";
 
 function Layout() {
@@ -8,6 +9,9 @@ function Layout() {
     <>
       <NavBar />
       <NotificationDrawer />
+      <Container maxWidth='xl' sx={{ mt: 5, pb: 5 }}>
+        <Outlet />
+      </Container>
     </>
   );
 }

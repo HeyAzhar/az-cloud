@@ -1,5 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
+import { red, blueGrey } from "@mui/material/colors";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
 import StateProvider from "./states/StateProvider";
@@ -20,6 +20,9 @@ function App() {
       },
       danger: {
         main: red[800],
+      },
+      grayish: {
+        main: blueGrey[100],
       },
     },
   });
