@@ -89,12 +89,11 @@ const SearchResource = () => {
 
         <Grid item xs={12}>
           <FormControl size='small' fullWidth>
-            <InputLabel id='demo-simple-select-label'>Age</InputLabel>
+            <InputLabel id='resource-select'>Select Resource</InputLabel>
             <Select
               variant='outlined'
-              labelId='demo-simple-select-label'
-              id='demo-simple-select'
-              label='Age'
+              labelId='resource-select'
+              label='Resources'
               value={resource}
               onChange={onResourceChange}
             >

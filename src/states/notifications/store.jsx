@@ -1,11 +1,52 @@
 import { createContext, useReducer, useContext } from "react";
 import actions from "./actions";
 
+export const getRandomId = () => {
+  // return Date.now() + Math.floor(Math.random() * 100);
+
+  return 5;
+};
+
 // initial state
 
 const initialState = {
   isDrawerOpen: false,
-  data: [],
+  data: [
+    {
+      id: getRandomId(),
+      type: "success",
+      title: "Success",
+      description: "This is a success Alert with an encouraging title.",
+    },
+    ,
+    {
+      id: getRandomId(),
+      type: "error",
+      title: "Success",
+      description: "This is a success Alert with an encouraging title.",
+    },
+    ,
+    {
+      id: getRandomId(),
+      type: "success",
+      title: "Success",
+      description: "This is a success Alert with an encouraging title.",
+    },
+    ,
+    {
+      id: getRandomId(),
+      type: "warning",
+      title: "Success",
+      description: "This is a success Alert with an encouraging title.",
+    },
+    ,
+    {
+      id: getRandomId(),
+      type: "success",
+      title: "Success",
+      description: "This is a success Alert with an encouraging title.",
+    },
+  ],
 };
 
 // export : creating context
@@ -27,6 +68,20 @@ const notificationReducer = (notificationData, action) => {
       return {
         ...notificationData,
         isDrawerOpen: false,
+      };
+    }
+
+    case actions.ADD_NOTIFICATION: {
+      return {
+        ...notificationData,
+        data: [...notificationData.data, { id: getRandomId(), ...action.data }],
+      };
+    }
+
+    case actions.REMOVE_NOTIFICATION: {
+      return {
+        ...notificationData,
+        data: notificationData.data.filter((item) => item.id !== action.id),
       };
     }
 

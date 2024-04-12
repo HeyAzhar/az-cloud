@@ -1,1 +1,1 @@
-export default ["Home", "Resources", "Operations", "Billings"];
+export default ["Home", "Resources", "Operations"];
