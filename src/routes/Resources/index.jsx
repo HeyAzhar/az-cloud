@@ -50,7 +50,7 @@ const Resources = () => {
             />
           </Paper>
         </Grid>
-        <Grid container item spacing={4} mx={"auto"} mt={4}>
+        <Grid container item spacing={4} justifyContent={"center"} mt={1}>
           {resourceData.map((data, i) => (
             <Grid key={i} item>
               <ResourceCard data={data} />

@@ -6,7 +6,13 @@ import FolderIcon from "@mui/icons-material/Folder";
 
 const ResourceCard = ({ data }) => {
   return (
-    <Paper sx={{ width: 380, border: 1, borderColor: "grayish.main" }}>
+    <Paper
+      sx={{
+        width: { xs: 340, sm: 380 },
+        border: 1,
+        borderColor: "grayish.main",
+      }}
+    >
       <Box
         sx={{
           display: "flex",

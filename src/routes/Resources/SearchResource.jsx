@@ -58,7 +58,7 @@ const SearchResource = () => {
     <Paper
       sx={{
         width: "100%",
-        height: "80vh",
+        height: "85vh",
         border: 1,
         borderColor: "grayish.main",
       }}
