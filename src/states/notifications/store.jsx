@@ -2,9 +2,7 @@ import { createContext, useReducer, useContext } from "react";
 import actions from "./actions";
 
 export const getRandomId = () => {
-  // return Date.now() + Math.floor(Math.random() * 100);
-
-  return 5;
+  return Date.now() + Math.floor(Math.random() * 100);
 };
 
 // initial state

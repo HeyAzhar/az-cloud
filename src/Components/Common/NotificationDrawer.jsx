@@ -9,7 +9,7 @@ import AlertTitle from "@mui/material/AlertTitle";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNotification } from "../../states/notifications/store";
 import actions from "../../states/notifications/actions";
-// import automateNotification from "../../states/notifications/automated";
+import automateNotification from "../../states/notifications/automated";
 
 const NotificationDrawer = () => {
   const { notificationState, dispatchNotification } = useNotification();
