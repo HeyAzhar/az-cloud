@@ -2,4 +2,4 @@
 
 to run the project on local : 
 
-```npm install && npm rundev```
+```npm install && npm run dev```
